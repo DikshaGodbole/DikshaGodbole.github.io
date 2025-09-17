@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diksha Godbole | Engineering Analyst</title>
+    <style>
+        :root {
+            --primary-color: #333;
+            --secondary-color: #007bff;
+            --background-color: #f4f4f4;
+            --text-color: #333;
+            --light-text-color: #fff;
+            --card-bg-color: #fff;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        header {
+            background: var(--card-bg-color);
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+        }
+        header .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        header nav ul li {
+            margin-left: 20px;
+        }
+        header nav ul li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        header nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        section {
+            padding: 80px 2rem 60px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+        }
+        h1, h2, h3, h4 {
+            color: var(--primary-color);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+        #home {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=2070') no-repeat center center/cover;
+            color: var(--light-text-color);
+            padding-top: 0;
+        }
+        #home h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            color: var(--light-text-color);
+        }
+        #home h3 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-top: 0;
+            color: var(--light-text-color);
+        }
+        .social-links a {
+            color: var(--light-text-color);
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.2rem;
+            border: 1px solid var(--light-text-color);
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .social-links a:hover {
+            background: var(--light-text-color);
+            color: var(--primary-color);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        .about-grid img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 50%;
+            margin: auto;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .skill-category {
+            background: var(--card-bg-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        .skill-category h4 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+        .job, .publication, .education-item {
+            background: var(--card-bg-color);
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        .job h4, .publication h4, .education-item h4 {
+            margin: 0;
+            color: var(--secondary-color);
+        }
+        .job p, .publication p, .education-item p {
+            margin: 0.2rem 0;
+            font-style: italic;
+        }
+        .job ul {
+            padding-left: 20px;
+            margin-top: 1rem;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .project-card {
+            background: var(--card-bg-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        .project-card h4 {
+            margin-top: 0;
+        }
+        .project-card .tech {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--primary-color);
+            color: var(--light-text-color);
+        }
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 0.5rem 1rem;
+            }
+            header .logo { margin-bottom: 0.5rem; }
+            header nav ul li { margin: 0 10px; }
+            h2 { font-size: 2rem; }
+            #home h1 { font-size: 2.5rem; }
+            #home h3 { font-size: 1.2rem; }
+            .about-grid { grid-template-columns: 1fr; text-align: center;}
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Diksha Godbole</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>Hi, I'm Diksha Godbole.</h1>
+        <h3>Engineering Analyst | Data Scientist | Adjunct Professor</h3>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/dikshagodbole11/" target="_blank">LinkedIn</a>
+            <a href="mailto:diksha.godbole@gmail.com">Email</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-grid">
+                <div>
+                    <img src="headshot.jpg" alt="A professional headshot of Diksha Godbole">
+                </div>
+                <div>
+                    <p>Highly analytical and results-oriented Engineering Analyst with 4+ years of experience in building data pipelines, developing data models, and providing actionable insights to drive strategic decisions. Proven ability to translate complex business challenges into data-driven solutions, demonstrated through experience in optimizing inventory management, risk modeling, and operational efficiency. Seeking to leverage advanced data science and machine learning skills, data pipeline expertise, and strong communication abilities to contribute and drive impactful business insights.</p>
+                </div>
+            </div>
+            <h3 style="text-align: center; margin-top: 3rem;">Technical Skills</h3>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Programming Languages</h4>
+                    <p>Python, C++, Java, Slang</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Machine Learning/A.I Frameworks</h4>
+                    <p>NumPy, Pandas, Pytorch, TensorFlow, Jupyter, Scikit-Learn</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Data Engineering/Analytics Tools</h4>
+                    <p>SQL, Oracle, Snowflake, Airflow, Greenfield, Hive, Kafka, Tableau</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Cloud Technology</h4>
+                    <p>AWS, Azure</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Project Management Tools</h4>
+                    <p>Jira, Confluence, Git, Miro</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" style="background-color: var(--card-bg-color);">
+        <div class="container">
+            <h2>Work Experience</h2>
+            <div class="job">
+                <h4>Senior Engineering Analyst at Target</h4>
+                <p>June 2023 - Current</p>
+                <ul>
+                    <li>Conducted research and developed an algorithm for directed back-stocking of products in-store, creating a quantifiable monetary impact by optimizing inventory management.</li>
+                    <li>Designed and created new pipelines for managing data on store inventory and staffing capacity.</li>
+                    <li>Developed an interactive capacity management dashboard, updated daily, providing critical insights to 1900+ store directors.</li>
+                    <li>Developed and implemented pipelines for anomaly detection of all store-generated data.</li>
+                    <li>Deployed robust data pipelines to ingest and transform Kafka topics into the Target Database.</li>
+                    <li>Developed a clustering-based algorithm using factors like store size, format, and distance to optimize resource allocation and enhance operational efficiency.</li>
+                </ul>
+            </div>
+            <div class="job">
+                <h4>Engineering Analyst at Goldman Sachs</h4>
+                <p>July 2021 - June 2023</p>
+                <ul>
+                    <li>Built scalable data models and ETL pipelines on AWS S3 for large-scale Apple Card data.</li>
+                    <li>Designed and deployed Airflow DAGs for automated Apple Credit Card reporting.</li>
+                    <li>Engineered robust data pipelines for end-to-end management of risk machine learning model data.</li>
+                    <li>Automated risk machine learning model reporting, significantly reducing manual effort.</li>
+                    <li>Developed APIs using model mapping for efficient data retrieval from data lakes.</li>
+                </ul>
+            </div>
+            <h2>Teaching & Academic Experience</h2>
+            <div class="job">
+                <h4>Adjunct Professor at St. Mary's College of California</h4>
+                <p>Spring 2025</p>
+                <ul>
+                    <li>Taught OPS 648 Machine Learning for Business, designing the syllabus, course materials, and applied case studies.</li>
+                    <li>Delivered lectures and hands-on labs covering ML model design, evaluation, and business integration.</li>
+                </ul>
+            </div>
+            <div class="job">
+                <h4>Adjunct Professor at University of the Pacific</h4>
+                <p>Spring 2024</p>
+                <ul>
+                    <li>Taught CS 157: Design and Analysis of Algorithms, developing curriculum with real-world applications.</li>
+                    <li>Led interactive sessions on computational complexity, optimization, and algorithm design patterns.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h4>Inventory Optimization Algorithm</h4>
+                    <p>Developed an algorithm for directed back-stocking of products, which optimized inventory management and resulted in a quantifiable monetary impact for Target stores.</p>
+                    <p class="tech">Python, SQL, Snowflake</p>
+                </div>
+                <div class="project-card">
+                    <h4>Store Capacity Management Dashboard</h4>
+                    <p>Designed and built an interactive, daily-updating dashboard providing 1900+ store directors with critical insights into store capacity and operational health.</p>
+                    <p class="tech">Tableau, Greenfield, SQL, Airflow</p>
+                </div>
+                <div class="project-card">
+                    <h4>Resource Clustering Algorithm</h4>
+                    <p>Created a clustering algorithm to optimize staff resource allocation by grouping stores based on size, format, tax rates, and distance, resulting in significant cost savings.</p>
+                    <p class="tech">Python, Scikit-Learn</p>
+                </div>
+                <div class="project-card">
+                    <h4>Apple Card Risk Model Pipeline</h4>
+                    <p>Engineered end-to-end data pipelines on AWS S3 to manage risk model data for Apple Card, ensuring data integrity for critical credit risk assessments.</p>
+                    <p class="tech">Python, AWS, Airflow, SQL</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="publications" style="background-color: var(--card-bg-color);">
+        <div class="container">
+            <h2>Publications</h2>
+            <div class="publication">
+                <h4>ID Convolutional Neural Network for Stock Market Prediction using Tensorflow.js</h4>
+                <p>Sandeep Chavan, Harshil Doshi, Diksha Godbole, Pranav Parge, Deipali Gore</p>
+                <p><em>International Journal of Innovative Science and Research Technology (IJISRT) Volume 4 - 2019, Issue 6 - June</em></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h4>The University of Texas at Dallas, USA</h4>
+                <p>Master of Science in Computer Science</p>
+                <p>Graduated: May 2021</p>
+            </div>
+            <div class="education-item">
+                <h4>Savitribai Phule Pune University</h4>
+                <p>Bachelor of Engineering in Computer Engineering</p>
+                <p>Graduated: May 2019</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background-color: var(--card-bg-color);">
+        <div class="container" style="text-align: center;">
+            <h2>Get In Touch</h2>
+            <p>Have a question or want to work together? Feel free to reach out!</p>
+            <div class="social-links" style="margin-top: 2rem;">
+                 <a href="https://www.linkedin.com/in/dikshagodbole11/" target="_blank" style="color: var(--primary-color); border-color: var(--primary-color);">LinkedIn</a>
+                 <a href="mailto:diksha.godbole@gmail.com" style="color: var(--primary-color); border-color: var(--primary-color);">Email</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Diksha Godbole. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
+```
